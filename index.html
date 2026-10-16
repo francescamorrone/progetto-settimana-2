@@ -1,38 +1,187 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amazon Homepage — Week Project</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <script type="module" src="assets/js/script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Homepage — Week Project</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
 
-  <header>
-    <!-- Logo, barra di ricerca, link Account / Ordini / Carrello -->
-  </header>
+    <header class="bar">
+        <!-- Logo, barra di ricerca, link Account / Ordini / Carrello -->
+        <div class="brand-logo">
+            <a href="#"><img src="assets/img/amazon-logo.svg" alt="logo di Amazon" /></a>
+        </div>
+        <div class="search-bar">
+            <form>
+                <input type="text" name="search" placeholder="Cerca prodotti, categorie, brand...">
+                <button id="search" type="submit">Cerca</button>
+            </form>
+        </div>
+        <div class="menu">
+            <a href="">Account</a>
+            <a href="">Ordini</a>
+            <a href="#">Carrello</a>
+        </div>
+    </header>
 
-  <main>
+    <main>
 
-    <section class="hero">
-      <!-- Titolo grande, sottotitolo -->
-    </section>
+        <section class="hero">
+            <!-- Titolo grande, sottotitolo -->
+            <h1>Le offerte di oggi</h1>
+            <p class="subtitle">Sconti fino al 70% su elettronica, libri, casa e molto altro</p>
+        </section>
 
-    <section class="categorie">
-      <!-- 4 card categoria -->
-    </section>
+        <section class="categorie">
+            <!-- 4 card categoria -->
+            <h2>Categorie</h2>
 
-    <section class="prodotti">
-      <!-- Griglia prodotti (Versione Base: HTML statico; Intermedia/Avanzata: generata da JS) -->
-    </section>
+            <!--cards-->
+            <div class="cards">
 
-  </main>
+                <div class="card">
+                    <span>Elettronica</span>
+                    <div class="card-text">
+                        <h3>Elettronica</h3>
+                        <a href="#">Scopri di più</a>
+                    </div>
+                </div>
 
-  <footer>
-    <!-- 3 colonne di link -->
-  </footer>
+                <div class="card">
+                    <span>Libri</span>
+                    <div class="card-text">
+                        <h3>Libri</h3>
+                        <a href="#">Scopri di più</a>
+                    </div>
+                </div>
 
-  <script src="script.js"></script>
+                <div class="card">
+                    <span>Abbigliamento</span>
+                    <div class="card-text">
+                        <h3>Abbigliamento</h3>
+                        <a href="#">Scopri di più</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <span>Casa</span>
+                    <div class="card-text">
+                        <h3>Casa</h3>
+                        <a href="#">Scopri di più</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="prodotti">
+            <h2>I più venduti</h2>
+            <!-- Griglia prodotti (Versione Base: HTML statico; Intermedia/Avanzata: generata da JS) -->
+            <div>
+
+                <div class="card-prodotto">
+                    <img src="https://placehold.co/300x200">
+                    <a href="#">Cuffie wireless con cancellazione del rumore</a>
+                    <p>★★★★☆ <span>(4.2)</span></p>
+                    <p>€ 89,99</p>
+                    <button class="button-product">Aggiungi al carrello</button>
+                </div>
+
+                <div class="card-prodotto">
+                    <img src="https://placehold.co/300x200">
+                    <a href="#">Tablet 10 pollici 64GB</a>
+                    <p>★★★★★ <span>(4.2)</span></p>
+                    <p>€ 199,00</p>
+                    <button class="button-product">Aggiungi al carrello</button>
+                </div>
+
+                <div class="card-prodotto">
+                    <img src="https://placehold.co/300x200">
+                    <a href="#">Il romanzo dell'anno</a>
+                    <p>★★★★★ <span>(4.2)</span></p>
+                    <p>€ 199,00</p>
+                    <button class="button-product">Aggiungi al carrello</button>
+                </div>
+
+                <div class="card-prodotto">
+                    <img src="https://placehold.co/300x200">
+                    <a href="#">Zaino da viaggio, 30L impermeabile</a>
+                    <p>★★★★★ <span>(4.2)</span></p>
+                    <p>€ 199,00</p>
+                    <button class="button-product">Aggiungi al carrello</button>
+                </div>
+
+                <div class="card-prodotto">
+                    <img src="https://placehold.co/300x200">
+                    <a href="#">Lampada LED</a>
+                    <p>★★★★★ <span>(4.2)</span></p>
+                    <p>€ 199,00</p>
+                    <button class="button-product">Aggiungi al carrello</button>
+                </div>
+
+                <div class="card-prodotto">
+                    <img src="https://placehold.co/300x200">
+                    <a href="#">Smartwatch fitness</a>
+                    <p>★★★★★ <span>(4.2)</span></p>
+                    <p>€ 199,00</p>
+                    <button class="button-product">Aggiungi al carrello</button>
+                </div>
+
+                <div class="card-prodotto">
+                    <img src="https://placehold.co/300x200">
+                    <a href="#">Mouse ergonomico</a>
+                    <p>★★★★★ <span>(4.2)</span></p>
+                    <p>€ 199,00</p>
+                    <button class="button-product">Aggiungi al carrello</button>
+                </div>
+
+                <div class="card-prodotto">
+                    <img src="https://placehold.co/300x200">
+                    <a href="#">Caffettiera moka</a>
+                    <p>★★★★★ <span>(4.2)</span></p>
+                    <p>€ 199,00</p>
+                    <button class="button-product">Aggiungi al carrello</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <!-- 3 colonne di link -->
+        <div class="column">
+            <h4>Chi siamo</h4>
+            <ul>
+                <li> <a href="#">Lavora con noi</a> </li>
+                <li> <a href="#">Investitori</a> </li>
+                <li> <a href="#">Sostenibilità</a> </li>
+            </ul>
+        </div>
+
+        <div class="column">
+            <h4>Aiuto</h4>
+            <ul>
+                <li> <a href="#">Centro assistenza</a> </li>
+                <li> <a href="#">Spedizioni</a> </li>
+                <li> <a href="#">Resi e rimborsi</a> </li>
+            </ul>
+        </div>
+
+        <div class="column">
+            <h4 >Connettiti</h4>
+            <ul>
+                <li> <a href="#">Facebook</a> </li>
+                <li> <a href="#">Instagram</a> </li>
+                <li> <a href="#">YouTube</a> </li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
 </body>
+
 </html>

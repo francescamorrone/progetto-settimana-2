@@ -16,6 +16,107 @@ REGOLE
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+prodotti = [
+   {
+      nome: "Cuffie",
+      categoria: "Elettronica",
+      prezzo: 89.99,
+      rating: 4,
+      immagine: "<path-immagine-cuffie>",
+      disponibile: true
+   }, 
+   {
+      nome: "Tablet",
+      categoria: "Elettronica",
+      prezzo: 199.00,
+      rating: 5,
+      immagine: "<path-immagine-tablet>",
+      disponibile: true
+   },
+   {
+      nome: "Marmellata",
+      categoria: "Cucina",
+      prezzo: 4.99,
+      rating: 4,
+      immagine: "<path-immagine-marmellata>",
+      disponibile: true
+   },
+   {
+      nome: "Vinile Fontaines DC",
+      categoria: "Musica",
+      prezzo: 199.00,
+      rating: 5,
+      immagine: "<path-immagine-vinile>",
+      disponibile: true
+   },
+   {
+      nome: "CD Michael Jackson",
+      categoria: "Musica",
+      prezzo: 39.99,
+      rating: 5,
+      immagine: "<path-immagine-cd>",
+      disponibile: true
+   },
+   {
+      nome: "Lampada",
+      categoria: "Casa",
+      prezzo: 69.99,
+      rating: 1,
+      immagine: "<path-immagine-lampada>",
+      disponibile: true
+   },
+   {
+      nome: "Comodino",
+      categoria: "Casa",
+      prezzo: 109.99,
+      rating: 3,
+      immagine: "<path-immagine-tablet>",
+      disponibile: false
+   },
+   {
+      nome: "Racconti di Lovecraft",
+      categoria: "Libri",
+      prezzo: 25.99,
+      rating: 5,
+      immagine: "<path-immagine-racconti>",
+      disponibile: true
+   },
+   {
+      nome: "Computer",
+      categoria: "Elettronica",
+      prezzo: 1099.99,
+      rating: 2,
+      immagine: "<path-immagine-computer>",
+      disponibile: true
+   },
+   {
+      nome: "Cover per cellulare",
+      categoria: "Elettronica",
+      prezzo: 109.99,
+      rating: 3,
+      immagine: "<path-immagine-comodino>",
+      disponibile: true
+   },
+   {
+      nome: "Maglia",
+      categoria: "Abbigliamento",
+      prezzo: 19.99,
+      rating: 3,
+      immagine: "<path-immagine-maglia>",
+      disponibile: false
+   },
+   {
+      nome: "Sciarpetta",
+      categoria: "Abbigliamento",
+      prezzo: 5.99,
+      rating: 5,
+      immagine: "<path-immagine-sciarpetta>",
+      disponibile: true
+   }
+]
+
+console.log(prodotti)
+
 
 /* VERSIONE INTERMEDIA — formattaPrezzo(prezzo)
    Funzione che ritorna una stringa tipo "€ 19,99".
@@ -23,6 +124,13 @@ REGOLE
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+function formattaPrezzo(prezzo){
+   const prezzoFormattato = `€ ${prezzo}`;
+   return prezzoFormattato;
+}
+
+console.log(`${prodotti[0].nome}: ${formattaPrezzo(prodotti[0].prezzo)}`);
 
 
 /* VERSIONE INTERMEDIA — stelline(rating)
@@ -32,12 +140,47 @@ REGOLE
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+function stelline(rating){
+   let ratingStelline = ""
+   switch(rating){
+      case 1: 
+         ratingStelline = "★☆☆☆☆";
+         break;
+      case 2:
+         ratingStelline = "★★☆☆☆";
+         break;
+      case 3:
+         ratingStelline = "★★★☆☆";
+         break;
+      case 4:
+         ratingStelline = "★★★★☆";
+         break;
+      case 5:
+         ratingStelline = "★★★★★";
+         break;
+   }
+   return ratingStelline;
+}
+
+const rating = 3;
+console.log(`${prodotti[0].nome}: rating ${prodotti[0].rating} → ${stelline(prodotti[0].rating)}`);
 
 /* VERSIONE INTERMEDIA — Filtro per categoria
    Funzione che riceve il parametro categoria e filtra l'array prodotti mostrando solo i prodotti della categoria ricevuta
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+function filtroPerCategoria(categoriaDaFiltrare){
+   let prodottiFiltrati = [];
+   for(let i = 0; i < prodotti.length; i++){
+      if(prodotti[i].categoria === categoriaDaFiltrare){
+         prodottiFiltrati.push(prodotti[i]);
+      }
+   }
+   return prodottiFiltrati;
+}
+
+console.log(filtroPerCategoria("Abbigliamento"))
 
 /* VERSIONE INTERMEDIA — Filtro disponibilità e rating
    Funzione che genera un array filtrato dall'array prodotti, mostrando soltanto i prodotti disponibili con rating >= 3
