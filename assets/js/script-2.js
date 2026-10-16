@@ -156,7 +156,7 @@ function renderProdottiAvanzata(lista){
       if(prodotto.disponibile){
          bottoneCarrello = `<button class="button-product" onclick="aggiungiAlCarrello('${prodotto.nome}')">Aggiungi al carrello</button>`
       } else {
-         bottoneCarrello = `<button disabled class="button-product" >Esaurito</button>`
+         bottoneCarrello = `<button disabled class="button-product">Esaurito</button>`
       }
 
        griglia.innerHTML += `

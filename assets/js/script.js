@@ -130,7 +130,10 @@ function formattaPrezzo(prezzo){
    return prezzoFormattato;
 }
 
-console.log(`${prodotti[0].nome}: ${formattaPrezzo(prodotti[0].prezzo)}`);
+for( let i = 0; i < prodotti.length; i++) {
+   console.log(`${prodotti[i].nome}: ${formattaPrezzo(prodotti[i].prezzo)}`);
+};
+
 
 
 /* VERSIONE INTERMEDIA — stelline(rating)
@@ -160,10 +163,12 @@ function stelline(rating){
          break;
    }
    return ratingStelline;
-}
+};
 
-const rating = 3;
-console.log(`${prodotti[0].nome}: rating ${prodotti[0].rating} → ${stelline(prodotti[0].rating)}`);
+for(let i = 0; i < prodotti.length; i++) {
+   console.log(`${prodotti[i].nome}: rating ${prodotti[i].rating} → ${stelline(prodotti[i].rating)}`);
+};
+
 
 /* VERSIONE INTERMEDIA — Filtro per categoria
    Funzione che riceve il parametro categoria e filtra l'array prodotti mostrando solo i prodotti della categoria ricevuta
