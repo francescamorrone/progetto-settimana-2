@@ -187,6 +187,18 @@ console.log(filtroPerCategoria("Abbigliamento"))
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+function filtroDisponibilitaERating(){
+   let prodottiFiltrati = [];
+   for(let i = 0; i < prodotti.length; i++){
+      if(prodotti[i].disponibile === true && prodotti[i].rating >= 3){
+         prodottiFiltrati.push(prodotti[i]);
+      }
+   }
+   return prodottiFiltrati;
+}
+
+console.log(filtroDisponibilitaERating())
+
 
 /* --------------------------------------------------------------
 
@@ -195,7 +207,12 @@ console.log(filtroPerCategoria("Abbigliamento"))
    Niente HTML hard-coded per i prodotti: tutto generato dal JavaScript.
 */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+/* SCRIVI QUI LA TUA RISPOSTA 
+
+
+RISPOSTA IN SCRIPT-2
+*/
+
 
 
 /* VERSIONE AVANZATA — Aggiungi al carrello
@@ -206,6 +223,45 @@ console.log(filtroPerCategoria("Abbigliamento"))
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+function renderProdottiAvanzata(lista){
+   const griglia = document.querySelector("#grigliaProdotti");
+   griglia.innerHTML = "";
+
+   for(const prodotto of lista){
+      let bottoneCarrello = "";
+      if(prodotto.disponibile){
+         bottoneCarrello = `<button onclick="aggiungiAlCarrello('${prodotto.nome}')">Aggiungi al carrello</button>`
+      } else {
+         bottoneCarrello = `<button disabled>Esaurito</button>`
+      }
+
+       griglia.innerHTML += `
+         <div class="card-prodotto">
+         <img src="${prodotto.immagine}" alt="${prodotto.nome}">
+         <h3>${prodotto.nome}</h3>
+         <p>Categoria: ${prodotto.categoria}</p>
+         <p>Prezzo: ${formattaPrezzo(prodotto.prezzo)}</p>
+         <p>Rating: ${stelline(prodotto.rating)}</p>
+         ${bottoneCarrello}
+         </div>
+      `;
+   }
+}
+
+function creaCarrello(){
+   let contatore = 0;
+
+   return function(){
+      contatore++;
+      const headerCarrello = document.querySelector("#carrelloHeader");
+      headerCarrello.innerHTML = `Carrello (${contatore})`;
+   }
+}
+
+const aggiungiAlCarrello = creaCarrello()
+
+renderProdottiAvanzata(prodotti)
+
 
 
 /* VERSIONE AVANZATA — Ordinamento
