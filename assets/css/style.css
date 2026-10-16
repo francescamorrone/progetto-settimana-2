@@ -291,3 +291,14 @@ footer {
 ul {
     list-style: none;
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    border-bottom: 1px solid #ECE6D8;
+    padding: 15px;
+}
+

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 <head>
     <meta charset="UTF-8">
@@ -23,7 +23,7 @@
         <div class="menu">
             <a href="">Account</a>
             <a href="">Ordini</a>
-            <a id="carrelloHeader" href="#">Carrello</a>
+            <a id="carrelloHeader"  onclick="riepilogoCarrello()">Carrello</a>
         </div>
     </header>
 
@@ -31,7 +31,15 @@
         <section>
         <div id="grigliaProdotti"></div>
         </section>
+
+        <section>
+            <h1>Riepilogo del tuo carrello</h1>
+            <div id="riepilogo">
+            </div>
+
+        </section>
     </main>
+
     <footer>
         <!-- 3 colonne di link -->
         <div class="column">

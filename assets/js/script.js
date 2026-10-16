@@ -22,7 +22,7 @@ prodotti = [
       categoria: "Elettronica",
       prezzo: 89.99,
       rating: 4,
-      immagine: "<path-immagine-cuffie>",
+      immagine: "https://m.media-amazon.com/images/I/71mTfSKhhTL._AC_SL1500_.jpg",
       disponibile: true
    }, 
    {
@@ -30,7 +30,7 @@ prodotti = [
       categoria: "Elettronica",
       prezzo: 199.00,
       rating: 5,
-      immagine: "<path-immagine-tablet>",
+      immagine: "https://m.media-amazon.com/images/I/616FFqht2sL._AC_SL1500_.jpg",
       disponibile: true
    },
    {
@@ -38,7 +38,7 @@ prodotti = [
       categoria: "Cucina",
       prezzo: 4.99,
       rating: 4,
-      immagine: "<path-immagine-marmellata>",
+      immagine: "https://m.media-amazon.com/images/I/712Up33dUVL._AC_SL1500_.jpg",
       disponibile: true
    },
    {
@@ -46,7 +46,7 @@ prodotti = [
       categoria: "Musica",
       prezzo: 199.00,
       rating: 5,
-      immagine: "<path-immagine-vinile>",
+      immagine: "https://m.media-amazon.com/images/I/61NxtC0cPML._AC_SY300_SX300_QL70_ML2_.jpg",
       disponibile: true
    },
    {
@@ -54,7 +54,7 @@ prodotti = [
       categoria: "Musica",
       prezzo: 39.99,
       rating: 5,
-      immagine: "<path-immagine-cd>",
+      immagine: "https://m.media-amazon.com/images/I/51cyEZc7AjL._AC_SL1080_.jpg",
       disponibile: true
    },
    {
@@ -62,7 +62,7 @@ prodotti = [
       categoria: "Casa",
       prezzo: 69.99,
       rating: 1,
-      immagine: "<path-immagine-lampada>",
+      immagine: "https://m.media-amazon.com/images/I/71ytxreUvmL._AC_SL1500_.jpg",
       disponibile: true
    },
    {
@@ -70,7 +70,7 @@ prodotti = [
       categoria: "Casa",
       prezzo: 109.99,
       rating: 3,
-      immagine: "<path-immagine-tablet>",
+      immagine: "https://m.media-amazon.com/images/I/61N5cVvtuBL._AC_SL1500_.jpg",
       disponibile: false
    },
    {
@@ -78,7 +78,7 @@ prodotti = [
       categoria: "Libri",
       prezzo: 25.99,
       rating: 5,
-      immagine: "<path-immagine-racconti>",
+      immagine: "https://m.media-amazon.com/images/I/71xx2LCE9+L._SL1479_.jpg",
       disponibile: true
    },
    {
@@ -86,7 +86,7 @@ prodotti = [
       categoria: "Elettronica",
       prezzo: 1099.99,
       rating: 2,
-      immagine: "<path-immagine-computer>",
+      immagine: "https://m.media-amazon.com/images/I/71APX2UPTVL._AC_SL1500_.jpg",
       disponibile: true
    },
    {
@@ -94,7 +94,7 @@ prodotti = [
       categoria: "Elettronica",
       prezzo: 109.99,
       rating: 3,
-      immagine: "<path-immagine-comodino>",
+      immagine: "https://m.media-amazon.com/images/I/61uOkmiI8TL._AC_SL1500_.jpg",
       disponibile: true
    },
    {
@@ -102,7 +102,7 @@ prodotti = [
       categoria: "Abbigliamento",
       prezzo: 19.99,
       rating: 3,
-      immagine: "<path-immagine-maglia>",
+      immagine: "https://m.media-amazon.com/images/I/61Wo67SDKRL._AC_SX569_.jpg",
       disponibile: false
    },
    {
@@ -110,7 +110,7 @@ prodotti = [
       categoria: "Abbigliamento",
       prezzo: 5.99,
       rating: 5,
-      immagine: "<path-immagine-sciarpetta>",
+      immagine: "https://m.media-amazon.com/images/I/71yulqjs6NL._AC_SX679_.jpghttps://m.media-amazon.com/images/I/71yulqjs6NL._AC_SX679_.jpg",
       disponibile: true
    }
 ]
@@ -213,10 +213,26 @@ console.log(filtroDisponibilitaERating())
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA 
-
-
-RISPOSTA IN SCRIPT-2
 */
+
+function renderProdotti(lista){
+   const grigliaProdotti = document.querySelector("#grigliaProdotti");
+   grigliaProdotti.innerHTML = "";
+
+   for(const prodotto of lista){
+      grigliaProdotti.innerHTML += `
+         <div class="card-prodotto">
+            <img src="${prodotto.immagine}" alt="${prodotto.nome}">
+            <a href="#">${prodotto.nome}</a>
+            <p>${stelline(prodotto.rating)}</p>
+            <p>Prezzo: ${formattaPrezzo(prodotto.prezzo)}</p>
+            <p class="categoria" >${prodotto.categoria}</p>
+         </div>
+      `;
+   }
+}
+
+renderProdotti(prodotti)
 
 
 
@@ -235,19 +251,19 @@ function renderProdottiAvanzata(lista){
    for(const prodotto of lista){
       let bottoneCarrello = "";
       if(prodotto.disponibile){
-         bottoneCarrello = `<button onclick="aggiungiAlCarrello('${prodotto.nome}')">Aggiungi al carrello</button>`
+         bottoneCarrello = `<button class="button-product" onclick="aggiungiAlCarrello('${prodotto.nome}')">Aggiungi al carrello</button>`
       } else {
-         bottoneCarrello = `<button disabled>Esaurito</button>`
+         bottoneCarrello = `<button disabled class="button-product">Esaurito</button>`
       }
 
        griglia.innerHTML += `
          <div class="card-prodotto">
-         <img src="${prodotto.immagine}" alt="${prodotto.nome}">
-         <h3>${prodotto.nome}</h3>
-         <p>Categoria: ${prodotto.categoria}</p>
-         <p>Prezzo: ${formattaPrezzo(prodotto.prezzo)}</p>
-         <p>Rating: ${stelline(prodotto.rating)}</p>
-         ${bottoneCarrello}
+            <img src="${prodotto.immagine}" alt="${prodotto.nome}">
+            <a href="#">${prodotto.nome}</a>
+            <p>${stelline(prodotto.rating)}</p>
+            <p>Prezzo: ${formattaPrezzo(prodotto.prezzo)}</p>
+            <p class="categoria" >${prodotto.categoria}</p>
+            ${bottoneCarrello}
          </div>
       `;
    }
@@ -268,7 +284,6 @@ const aggiungiAlCarrello = creaCarrello()
 renderProdottiAvanzata(prodotti)
 
 
-
 /* VERSIONE AVANZATA — Ordinamento
    Menu a tendina con: Prezzo crescente, Prezzo decrescente, Rating.
    Suggerimento: per rendere più leggibile la select puoi usare optgroup
@@ -283,6 +298,37 @@ renderProdottiAvanzata(prodotti)
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+function riepilogoCarrello(){
+   const riepilogo = document.querySelector("#riepilogo");
+   let totale = 0;
+   let riepilogoHTML = ""
+   riepilogoHTML = `
+      <table>
+         <tr>
+            <th>Prodotto</th>
+            <th>Prezzo</th>
+            <th>Totale</th>
+         </tr>
+   `
+   for(const prodotto of prodottiInCarrello){
+      riepilogoHTML += `
+         <tr>
+            <td>${prodotto.nome}</td>
+            <td>${formattaPrezzo(prodotto.prezzo)}</td>
+         </tr>
+      `
+      totale += Number(prodotto.prezzo);
+   }
+   riepilogoHTML += `
+      <tr>
+         <td></td>
+         <td></td>
+         <td>${formattaPrezzo(totale.toFixed(2))}</td>
+      </tr>
+      </table>
+   `
+   riepilogo.innerHTML = riepilogoHTML;
+}
 
 
 /* VERSIONE AVANZATA — localStorage
